@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.cal-container {
+  display:flex;
+  flex-direction: column;
+  height: 400px;
+  width: 200px;
+}
+
+.output{
+  flex-grow: 1;
+  border: 1px solid black;
+
+}
+
+.buttonbundle{
+  flex-grow: 2;
+  border : 1px solid black;
+  flex-direction:column;
+}
+
+.click{
+  border : 1px solid red;
+  display:flex;
+  justify-content:space-between;
+}
+
+.click > number operrater{
+  flex-grow:1;
+}

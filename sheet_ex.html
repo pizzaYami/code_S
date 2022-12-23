@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 내부 스타일 시트 -->
+  h1 {
+    backgroundcolor="yello"  
+  }
+  <!-- 외부 스타일 시트 -->
+  <link rel="stylesheet" href="index.css" />
+  
+</head>
+<body>
+   <!-- 인라인스타일 -->
+  <h1 class="exm" color="red"> 예시용입니다 </h1> 
+</body>
+</html>
+
+<h1 id="ex1"> 예시 1</h1>
+<h1 class="ex2"> 예시 1</h1>
+<h1 class="ex3"> 예시 1</h1>
+<!--👆👇둘다 ex2, ex3 class가 적용된 것이다. 둘다 같다.-->
+<h1 class="ex2 ex3"> 예시 1</h1>
+
+<!-- id는 #을 붙여서 불러내면 된다 -->
+#ex1{
+  color="red"
+}
+<!-- class는 .을 붙여서 불러내면 된다. -->
+.ex2{
+  color="yellow"
+}
+
+.ex3{
+
+  color:#ff0000; <!-- 글자 색상 -->
+  background-color: #155724;<!-- 배경 색상 -->
+  border-color: #c336cd;<!-- 테두리 색상 -->
+
+  font-family: "SF Pro KR", "MalgunGothic", "Verdana";  <!-- 폰트 설정 앞에꺼부터 적 -->
+
+  font-size: 24px; <!-- 글자 크기 -->
+  font-weight: 400px <!-- 굵기 -->
+  text-decoration: underline<!-- 밑줄, 가로줄 -->
+  letter-spacing: 5px<!--  자간 -->
+  line-height: 3px<!-- 행간 -->
+
+  text-align: left; <!-- 왼쪽 정렬 -->
+  text-align: right;<!-- 오른쪽 정렬 -->
+  text-align: center;<!-- 중앙 정렬 -->
+  text-align: justify;<!-- 양쪽 정렬 -->
+}
+
