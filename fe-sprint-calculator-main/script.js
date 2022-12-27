@@ -12,7 +12,6 @@ function calculate(n1, operator, n2) {
   if(operator === '+'){
     result = Number(n1) + Number(n2);
     // n1 n2 에 넣을 값이 String으로 데려오기 때문에 Number로 바꾸어야한다.
-
   }
   else if(operator === '-'){
     result = Number(n1) - Number(n2);
@@ -42,17 +41,24 @@ buttons.addEventListener('click', function (event) {
   // ! 위 코드(Line 19 - 21)는 수정하지 마세요.
 
   if (target.matches('button')) {
-    // TODO : 계산기가 작동할 수 있도록 아래 코드를 수정하세요. 작성되어 있는 조건문과 console.log를 활용하시면 쉽게 문제를 풀 수 있습니다.
     // 클릭된 HTML 엘리먼트가 button이면
     if (action === 'number') {
-      // 그리고 버튼의 클레스가 number이면
-      // 아래 코드가 작동됩니다.
+
+
       if(firstOperend.textContent === '0'){
         firstOperend.textContent = buttonContent;
-      }
-      else{
+      }else{
         secondOperend.textContent = buttonContent;
       }
+
+      // // firstOperend.textContent = buttonContent;
+      
+      // if(firstOperend.textcontent === '0'){
+      // firstOperend.textContent = buttonContent;
+      // }else{
+      // secondOperend.textContent = buttonContent;
+      // }
+
     }
   }
 
@@ -77,7 +83,7 @@ buttons.addEventListener('click', function (event) {
     // 첫 번째 숫자, 연산자, 두 번째 숫자를 확정해야 합니다.
     // 위 세 가지를 함수 calculate에 전달하고, 돌려받은 결괏값이 마지막 칸에 입력되어야 합니다.
     // String 빼도 되는건가??
-      calculatedResult.textContent = calculate(firstOperend.textContent, String(operator.textContent), secondOperend.textContent);
+      calculatedResult.textContent = calculate(firstOperend.textContent, operator.textContent, secondOperend.textContent);
     }
   }
 );
@@ -100,19 +106,31 @@ buttons.addEventListener('click', function (event){
   if (target.matches('button')) {
     if (action === 'number') {
 
+      // display.textContent = buttoncontent; 
+
+
+      // 처음 숫자가 '0'이면 버튼 누르면 숫자가 '0' 대신 들어가고
+      // 처음 숫자가 '0'이 아니라면 버튼 누르면 숫자가 뒤에 더해진다.
+      // if(display.textContent === '0'){
+      //   display.textContent = buttonContent;
+      // }else{
+      //   display.textContent += buttonContent; // += 뿌듯
+      // }
+
       if(operatorForAdvanced === display.textContent){ 
-        
-        // operator === previousKey
-        // previousKey = number
+        //operator.text.content ===  '+', '-', '*', '/'
+        //조건문의 순서
+        //previousKey === '+', '-', '*', '/'
+        // console.log를 적극 사용하기 시작
+        // operator 엘리먼트와 자식들 불러내고
+        // operator.textcontent 초기값 + 이래서 안 돌아가는구나 
+
         display.textContent = buttonContent;
       }
-      //뒤에 넣어서 작동이 안됐다. 
-      // 0이면 새로운 입력 그렇지 않으면 그 뒤에다가 붙인다.
       else if(display.textContent === '0'){
-      // 숫자를 넣었을 때 '0'을 대체해서 숫자가 
+
         display.textContent = buttonContent;
       }
-      // 숫자를 한번 더 눌렀을 때 뒤에 숫자가 붙어야한다.
       else if(display.textContent !== '0'){
         display.textContent += buttonContent;
       }
@@ -121,13 +139,16 @@ buttons.addEventListener('click', function (event){
 
 
     if (action === 'operator') {
-      // 클릭한 버튼이 operator라면 화면출력값과 operator를 저장한다.
+
+      // 클릭한 버튼이 operator라면 화면출력값(이전숫자)과 operator를 저장한다.
       // 다시 Number를 눌렀을 때 새롭게 숫자가 시작되어야한다.
-      // 이전숫자와 이후숫자가 operator로 계산되어야한다.
-      // 내가 연산자도 눌렀다는 것도 기억해야한다.
-      operatorForAdvanced = display.textContent; // 변수 할당 (나중에 할때는 내가 변수 선언도 하자.)
+      // 이전숫자와 이후숫자가 계산되어야한다.
+
+
+      operatorForAdvanced = display.textContent; // 변수 할당 // 변수명 좀 봐라!!!!
       previousKey = operator.textContent;
       
+      // 내가 연산자도 눌렀다는 것도 기억해야한다.
       // operatorForAdvanced = buttonContent; 
       // firstNum = display.textContent; 
       // previousKey = 'operator';
@@ -136,10 +157,13 @@ buttons.addEventListener('click', function (event){
     if (action === 'decimal') {}
     if (action === 'clear') {
       display.textContent = '0';
+      operatorForAdvanced = '0'
       // 변수 undefined;
-      // previous는 clear 왜일까?
+      // previousKey = clear 왜일까?
     }
     if (action === 'calculate') {
+      // calculate(operatorForAdvanced.textContent, operator.textContent, display.textContent)
+
       if(previousKey === '+'){
         display.textContent = Number(operatorForAdvanced) + Number(display.textContent)
       }
@@ -152,6 +176,7 @@ buttons.addEventListener('click', function (event){
       if(previousKey === '/'){
         display.textContent = Number(operatorForAdvanced) / Number(display.textContent)
       }
+
       // previousNum = display.textContent
       // display.textContent = calculate(firstNum, operatorForAdvanced, previousNum)
       // previousKey = calculate;
