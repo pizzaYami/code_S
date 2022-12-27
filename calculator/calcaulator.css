@@ -3,7 +3,7 @@
   margin: 0px;
   padding: 0px;
   border: 0px;
-  border-radius: 10px;
+  border-radius: 10px; 
   font-family: 'Single Day', cursive;
 }
 
@@ -15,10 +15,10 @@ body {
   height: 100vh;
   width: 100vw;
   background-image: url('/Users/joyongju/code_S/calculator/snow1.jpeg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* 상대경로로 하는게 낫다. */
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
   background-size: cover;
-
 }
 
 .cal-container {
@@ -32,15 +32,15 @@ body {
 }
 
 .output{
-  border: 1px solid black;
-  background-color: aliceblue;
-  flex-direction: row;
-  flex-grow: 2;
-  margin-bottom: 5px;
-  padding: 0 10px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   text-align: center;
+  flex-grow: 2;
+  margin-bottom: 5px;
+  border: 1px solid black;
+  padding: 0 10px;
+  background-color: aliceblue;
   }
 
 
@@ -82,12 +82,12 @@ button{
 }
 
 button:active{
-box-shadow: #D6D6E7 0 3px 7px inset;
+box-shadow: #D6D6E7 0 1px 7px inset;
 transform: translateY(2px);
 }
 
 button:hover{
-  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+  box-shadow: #ff9f40 0 0 0 2px, transparent 0 0 0 0;
 }
 
 .zero{
