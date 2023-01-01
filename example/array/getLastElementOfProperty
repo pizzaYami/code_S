@@ -1,0 +1,4 @@
+function getLastElementOfProperty(obj, property) {
+  // 주어진 키에 해당하는 값이 배열이고, 빈 배열이 아닌 경우에만 배열의 요소를 리턴해야 합니다.
+  return (obj[property] instanceof Array) ? obj[property].pop() : undefined;
+}

@@ -1,0 +1,18 @@
+function countAllCharacters(str) {
+  const result = {};
+
+  for (const s of str){
+    result[s] = result[s] ? result[s] + 1 : 1;
+  }
+
+  return result;
+}
+
+
+// function countAllCharacters(str) {
+//     return [...str].reduce((pre, cur) => {
+//         pre[cur] || (pre[cur] = 0);
+//         pre[cur] += 1;
+//         return pre;
+//     }, {});
+// }

@@ -1,0 +1,10 @@
+function select(arr, obj) {
+  return Object.fromEntries(
+    Object.entries(obj).filter(([key, _]) => arr.includes(key))
+  );
+}
+
+
+// function select(arr, obj) {
+//     return arr.reduce((pre, cur) => (obj[cur] && (pre[cur] = obj[cur]), pre),{});
+// }

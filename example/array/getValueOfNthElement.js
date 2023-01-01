@@ -1,0 +1,6 @@
+function getValueOfNthElement(arr, num) {
+  num >= arr.length && (num = arr.length - 1);
+
+  return arr.length > 1 ? arr[num]['name'] : 'no name';
+}
+
