@@ -8,12 +8,12 @@ describe('primitive data type과 reference data type에 대해서 학습합니�
  */
   it('원시 자료형은 값 자체에 대한 변경이 불가능(immutable)합니다.', function () {
     let name = 'codestates';
-    expect(name).to.equal(FILL_ME_IN);
-    expect(name.toUpperCase()).to.equal(FILL_ME_IN);
-    expect(name).to.equal(FILL_ME_IN);
+    expect(name).to.equal('codestates');
+    expect(name.toUpperCase()).to.equal('CODESTATES');
+    expect(name).to.equal('codestates');
     // 새로운 값으로 재할당은 가능합니다.
     name = name.toUpperCase();
-    expect(name).to.equal(FILL_ME_IN);
+    expect(name).to.equal('CODESTATES');
 
     /*
     원시 자료형은 값 자체에 대한 변경이 불가능하다고 하는데, 한 변수에 다른 값을 할당하는 것은 변경이 된 것이 아닌가요?
@@ -29,14 +29,14 @@ describe('primitive data type과 reference data type에 대해서 학습합니�
     let allowedToDrink = overTwenty;
 
     overTwenty = false;
-    expect(overTwenty).to.equal(FILL_ME_IN);
-    expect(allowedToDrink).to.equal(FILL_ME_IN);
+    expect(overTwenty).to.equal(false);
+    expect(allowedToDrink).to.equal(true);
 
     let variable = 'variable';
     let variableCopy = 'variableCopy';
     variableCopy = variable;
     variable = variableCopy;
-    expect(variable).to.equal(FILL_ME_IN);
+    expect(variable).to.equal('variable');
   });
 
   it('원시 자료형 또는 원시 자료형의 데이터를 함수의 전달인자로 전달할 경우, 값 자체의 복사가 일어납니다.', function () {
@@ -45,14 +45,14 @@ describe('primitive data type과 reference data type에 대해서 학습합니�
       year = year + 10;
     }
     afterTenYears(currentYear);
-    expect(currentYear).to.equal(FILL_ME_IN);
+    expect(currentYear).to.equal(2020);
     function afterTenYears2(currentYear) {
       currentYear = currentYear + 10;
       return currentYear;
     }
     let after10 = afterTenYears2(currentYear);
-    expect(currentYear).to.equal(FILL_ME_IN);
-    expect(after10).to.equal(FILL_ME_IN);
+    expect(currentYear).to.equal(2020);
+    expect(after10).to.equal(2030);
     // 사실 함수의 전달인자도 변수에 자료(data)를 할당하는 것입니다.
     // 함수를 호출하면서 넘긴 전달인자가 호출된 함수의 지역변수로 (매 호출 시마다) 새롭게 선언됩니다.
   });
