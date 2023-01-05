@@ -106,20 +106,20 @@ describe('primitive data type과 reference data type에 대해서 학습합니�
   */
   it('참조 자료형의 데이터는 동적(dynamic)으로 변합니다.', function () {
     const arr = [1, 2, 3];
-    expect(arr.length).to.equal(FILL_ME_IN);
+    expect(arr.length).to.equal(3);
     arr.push(4, 5, 6);
-    expect(arr.length).to.equal(FILL_ME_IN);
+    expect(arr.length).to.equal(6);
     arr.pop();
-    expect(arr.length).to.equal(FILL_ME_IN);
+    expect(arr.length).to.equal(5);
 
     const obj = {};
-    expect(Object.keys(obj).length).to.equal(FILL_ME_IN);
+    expect(Object.keys(obj).length).to.equal(0);
     obj['name'] = 'codestates';
     obj.quality = 'best';
     obj.product = ['sw engineering', 'product manager', 'growth marketing', 'data science'];
-    expect(Object.keys(obj).length).to.equal(FILL_ME_IN);
+    expect(Object.keys(obj).length).to.equal(3);
     delete obj.name;
-    expect(Object.keys(obj).length).to.equal(FILL_ME_IN);
+    expect(Object.keys(obj).length).to.equal(2);
   });
 
   it('참조 자료형을 변수에 할당할 경우, 데이터의 주소가 저장됩니다.', function () {
@@ -135,20 +135,20 @@ describe('primitive data type과 reference data type에 대해서 학습합니�
     let allowedToDrink = overTwenty;
 
     overTwenty.push('san');
-    expect(allowedToDrink).to.deep.equal(FILL_ME_IN);
+    expect(allowedToDrink).to.deep.equal(['hongsik', 'minchul', 'hoyong', 'san']);
     overTwenty[1] = 'chanyoung';
-    expect(allowedToDrink[1]).to.deep.equal(FILL_ME_IN);
+    expect(allowedToDrink[1]).to.deep.equal('chanyoung');
     // .deep.equal은 배열의 요소나 객체의 속성이 서로 같은지 확인하는 matcher입니다.
     // .equal아닌 .deep.equal을 사용하는 이유는 아래 테스트 코드를 통해 고민하시기 바랍니다.
 
     const ages = [22, 23, 27];
     allowedToDrink = ages;
-    expect(allowedToDrink === ages).to.equal(FILL_ME_IN);
-    expect(allowedToDrink === [22, 23, 27]).to.equal(FILL_ME_IN);
+    expect(allowedToDrink === ages).to.equal(true);
+    expect(allowedToDrink === [22, 23, 27]).to.equal(false);
 
     const nums1 = [1, 2, 3];
     const nums2 = [1, 2, 3];
-    expect(nums1 === nums2).to.equal(FILL_ME_IN);
+    expect(nums1 === nums2).to.equal(false);
 
     const person = {
       son: {
@@ -158,10 +158,10 @@ describe('primitive data type과 reference data type에 대해서 학습합니�
 
     const boy = person.son;
     boy.age = 20;
-    expect(person.son.age).to.equal(FILL_ME_IN);
-    expect(person.son === boy).to.equal(FILL_ME_IN);
-    expect(person.son === { age: 9 }).to.equal(FILL_ME_IN);
-    expect(person.son === { age: 20 }).to.equal(FILL_ME_IN);
+    expect(person.son.age).to.equal(20);
+    expect(person.son === boy).to.equal(true);
+    expect(person.son === { age: 9 }).to.equal(false);
+    expect(person.son === { age: 20 }).to.equal(false);
 
     /*
     아래의 테스트 코드들은 선뜻 받아들이기 힘들 수 있습니다.
