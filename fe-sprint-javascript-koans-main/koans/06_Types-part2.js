@@ -1,4 +1,6 @@
 describe('primitive data type과 reference data type에 대해서 학습합니다.', function () {
+//참조자료형의 경우에는 변수에 주소값이 담긴다.
+
   /*
 
   * 아래 주석이 이해하기 어렵다면, 유어클래스 Lesson - Primitive & Reference를 복습하세요 :)

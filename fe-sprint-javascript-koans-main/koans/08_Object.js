@@ -4,6 +4,7 @@ describe('Object에 대해서 학습합니다.', function () {
     이머시브 과정에서 객체를 보다 자세하게 학습하게 됩니다. (예. prototype)
   */
   it('Object의 기본을 확인합니다.', function () {
+    //object의 length속성은 없다.
     const emptyObj = {};
     expect(typeof emptyObj === 'object').to.equal(true);
     expect(emptyObj.length).to.equal(undefined);

@@ -43,7 +43,9 @@ describe('Array에 대해서 학습합니다.', function () {
 
   it('Array 메소드 slice를 확인합니다.', function () {
     const arr = ['peanut', 'butter', 'and', 'jelly'];
-
+    // slice(a,b) a에서부터 b까지 범위넘어가면 범위안의 것만 출력
+    // 값이 없으면 [] 출력
+    // slice만든값은 주소값이 다르다.
     expect(arr.slice(1)).to.deep.equal(['butter', 'and', 'jelly']);
     expect(arr.slice(0, 1)).to.deep.equal(['peanut']);
     expect(arr.slice(0, 2)).to.deep.equal(['peanut', 'butter']);

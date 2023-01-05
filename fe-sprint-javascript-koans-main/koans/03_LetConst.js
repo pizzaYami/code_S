@@ -1,14 +1,18 @@
 describe("'const'에 대해서 학습합니다.", function () {
   it("'const'로 선언된 변수에는 재할당(reassignment)이 금지됩니다.", function () {
     // 아래 코드에서 문제가 되는 부분을 삭제합니다.
+    // const는 재할당이 불가능하기 때문이다. 
     const constNum = 0;
+    // constNum = 0;
     expect(constNum).to.equal(0);
 
     const constString = 'I am a const';
+    // constString = 'what the hell';
     expect(constString).to.equal('I am a const');
   });
 
   it("'const'로 선언된 배열의 경우 새로운 요소를 추가하거나 삭제할 수 있습니다.", function () {
+    // 배열은 주소값은 같아서 내부 내용을 변경해도 변수에 할당된 주소값이 변경되지 않았다.
     const arr = [];
     const toBePushed = 42;
     arr.push(toBePushed);

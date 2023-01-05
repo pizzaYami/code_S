@@ -1,6 +1,10 @@
 describe('scope 대해서 학습합니다.', function () {
   //  scope는 변수의 값(변수에 담긴 값)을 찾을 때 확인하는 곳을 말합니다. 반드시 기억하시기 바랍니다.
   it('함수 선언식(declaration)과 함수 표현식(expression)의 차이를 확인합니다.', function () {
+    // 하나로 통일되게 작성한다.
+    // 가능하면 호이스팅을 인지하고 코드를 읽을 필요 없이 직관적으로 순서대로 적어야한다.
+    // 함수 표현식은 호이스팅 없다.
+    // 함수 선언식은 호이스팅 있다. // 위로 끌려서 올라온다. 
     let funcExpressed = 'to be a function';
 
     expect(typeof funcDeclared).to.equal('function');
@@ -15,7 +19,8 @@ describe('scope 대해서 학습합니다.', function () {
     };
 
     // 자바스크립트 함수 호이스팅(hoisting)에 대해서 검색해 봅니다.
-
+    // 위에서부터 아래로 읽히도록 작성한다.
+    
     const funcContainer = { func: funcExpressed };
     expect(funcContainer.func()).to.equal('this is a function expression');
 
@@ -35,11 +40,11 @@ describe('scope 대해서 학습합니다.', function () {
       return message;
     }
 
-    function shadowGlobal2(message) {
+    function shadowGlobal2(message) { // 매개변수도 스코프에 포함된다.
       return message;
     }
 
-    function shadowParameter(message) {
+    function shadowParameter(message) { // 매개변수에 할당하지 마세요! 나중에 찾기 힘들다. 그냥 변수를 하나 늘려라
       message = 'Do not use parameters like this!';
       return message;
     }
@@ -51,8 +56,8 @@ describe('scope 대해서 학습합니다.', function () {
     expect(message).to.equal('Outer');
   });
 
-  it('default parameter에 대해 확인합니다.', function () {
-    function defaultParameter(num = 5) {
+  it('default parameter에 대해 확인합니다.', function () { 
+    function defaultParameter(num = 5) { //  
       return num;
     }
 
