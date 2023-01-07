@@ -14,10 +14,6 @@ let elPasswordsuccessMessage = document.querySelector('.match-message');
 
 elInputUsername.onkeyup = function(){
   console.log(elInputUsername.value)
-}
-
-elInputUsername.onkeyup = function(){
-  console.log(elInputUsername.value)
 
 function isMoreThan4Length(value){
   return value.length >= 4;
@@ -37,12 +33,7 @@ function isMoreThan4Length(value){
   }
 }
 
-elPassword.onkeyup = function(){
-
-}
-
 elPasswordCheck.onkeyup = function(){
-
   isMatch(elPassword.value, elPasswordCheck.value);
 }
 
