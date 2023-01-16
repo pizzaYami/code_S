@@ -6,4 +6,3 @@ function solution(numbers) {
   }
   return result / numbers.length
 }
-why!!!
