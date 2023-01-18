@@ -11,6 +11,7 @@
 // 이 함수는 underbar의 기능 구현 및 테스트를 위해 재사용되는 함수입니다.
 _.identity = function (val) {
   // TODO: 여기에 코드를 작성합니다.
+  return val;
 };
 
 /**
@@ -111,14 +112,26 @@ _.slice = function (arr, start, end) {
 // n이 undefined이거나 음수인 경우, 빈 배열을 리턴합니다.
 // n이 배열의 길이를 벗어날 경우, 전체 배열을 shallow copy한 새로운 배열을 리턴합니다.
 _.take = function (arr, n) {
-  // TODO: 여기에 코드를 작성합니다.
+  let result = [];
+  if(n === undefined || n < 0) return result;
+  if(n > arr.length) return _.slice(arr, 0);
+
+  for(let i = 0; i<n; i++){
+    result.push(arr[i]);
+  }
+  return result;
 };
 
 // _.drop는 _.take와는 반대로, 처음 n개의 element를 제외한 새로운 배열을 리턴합니다.
 // n이 undefined이거나 음수인 경우, 전체 배열을 shallow copy한 새로운 배열을 리턴합니다.
 // n이 배열의 길이를 벗어날 경우, 빈 배열을 리턴합니다.
 _.drop = function (arr, n) {
-  // TODO: 여기에 코드를 작성합니다.
+
+  if(n === undefined || n <= 0) return _.slice(arr, 0);
+  if(n > arr.length) return [];
+
+  for(let i = 0; i<n; i++) return _.slice(arr, n)
+
 };
 
 // _.last는 배열의 마지막 n개의 element를 담은 새로운 배열을 리턴합니다.
@@ -126,7 +139,11 @@ _.drop = function (arr, n) {
 // n이 배열의 길이를 벗어날 경우, 전체 배열을 shallow copy한 새로운 배열을 리턴합니다.
 // _.take와 _.drop 중 일부 또는 전부를 활용할 수 있습니다.
 _.last = function (arr, n) {
-  // TODO: 여기에 코드를 작성합니다.
+  if(n === undefined || n < 0) return _.slice(arr, -1)
+  if(n > arr.length) return _.slice(arr, 0)
+  if(n === 0) return []
+
+  return _.slice(arr, -n)
 };
 
 // _.each는 collection의 각 데이터에 반복적인 작업을 수행합니다.
@@ -159,7 +176,13 @@ _.last = function (arr, n) {
 
 // _.each는 명시적으로 어떤 값을 리턴하지 않습니다.
 _.each = function (collection, iteratee) {
-  // TODO: 여기에 코드를 작성합니다.
+
+    if(Array.isArray(collection)===true)
+    for(let i = 0; i<collection.length; i++) iteratee(collection[i], i, collection);
+    if(Array.isArray(collection)===false){
+      for(let keys in collection) iteratee(collection[keys], keys, collection);
+    }
+
 };
 
 // _.indexOf는 target으로 전달되는 값이 arr의 요소인 경우, 배열에서의 위치(index)를 리턴합니다.
@@ -184,28 +207,46 @@ _.indexOf = function (arr, target) {
 // test(element)의 결과(return 값)가 truthy일 경우, 통과입니다.
 // test 함수는 각 요소에 반복 적용됩니다.
 _.filter = function (arr, test) {
-  // TODO: 여기에 코드를 작성합니다.
-};
+
+  let result = [];
+  _.each(arr, function(item){
+    if(test(item)) result.push(item);
+    })
+  return result;
+}
 
 // _.reject는 _.filter와 정반대로 test 함수를 통과하지 않는 모든 요소를 담은 새로운 배열을 리턴합니다.
 _.reject = function (arr, test) {
-  // TODO: 여기에 코드를 작성합니다.
+  let result = [];
+  _.each(arr, function(item){
+    if(!test(item)) result.push(item);
+    })
+  return result;
 };
 
 // _.uniq는 주어진 배열의 요소가 중복되지 않도록 새로운 배열을 리턴합니다.
 // 중복 여부의 판단은 엄격한 동치 연산(strict equality, ===)을 사용해야 합니다.
 // 입력으로 전달되는 배열의 요소는 모두 primitive value라고 가정합니다.
 _.uniq = function (arr) {
-  // TODO: 여기에 코드를 작성합니다.
-};
+  // _.each 사용해서 요소값은 같은데 index값이 다른경우 없애버린다.
+  // for문사용해서 arr[]값이 el이랑 같을경우 index값 비교해서 같으면없애버린다.
+  let result = [];
+  _.each(arr, function(item){
+    if(_.indexOf(result, item) === -1) result.push(item);
+  })
+  return result;
+}
+
 
 // _.map은 iteratee(반복되는 작업)를 배열의 각 요소에 적용(apply)한 결과를 담은 새로운 배열을 리턴합니다.
 // 함수의 이름에서 드러나듯이 _.map은 배열의 각 요소를 다른 것(iteratee의 결과)으로 매핑(mapping)합니다.
-_.map = function (arr, iteratee) {
-  // TODO: 여기에 코드를 작성합니다.
-  // _.map 함수는 매우 자주 사용됩니다.
-  // _.each 함수와 비슷하게 동작하지만, 각 요소에 iteratee를 적용한 결과를 리턴합니다.
-};
+_.map = function (arr, iteratee){
+  let result = [];
+_.each(arr, function (item) {
+result.push(iteratee(item));
+});
+return result;
+}
 
 // _.pluck은
 //  1. 객체 또는 배열을 요소로 갖는 배열과 각 요소에서 찾고자 하는 key 또는 index를 입력받아
