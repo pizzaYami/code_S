@@ -5,12 +5,8 @@ const { resolve } = require("path");
 const getDataFromFilePromise = filePath => {
   return new Promise((resolve, reject) =>{
     fs.readFile(filePath, "utf8", (err,data) =>{
-      if(err){
-        reject(err);
-      }
-      else{
-        resolve(data);
-      }
+      if(err) reject(err); //err나오면 reject로 넘겨주고
+      else resolve(data); // 아니면 resolve로 넘겨준다.
     })
   })
 

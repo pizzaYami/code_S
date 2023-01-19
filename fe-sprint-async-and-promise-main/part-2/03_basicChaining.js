@@ -9,8 +9,8 @@ const user2Path = path.join(__dirname, 'files/user2.json');
 const readAllUsersChaining = () => {
   // TODO: 여러개의 Promise를 then으로 연결하여 작성합니다
   const result = []
-  return getDataFromFilePromise(user1Path)
-    .then(value =>{
+  return getDataFromFilePromise(user1Path) // json 데이터가 뭔데
+    .then(value =>{  // 
       value = JSON.parse(value)
       result.push(value)
       return getDataFromFilePromise(user2Path)
