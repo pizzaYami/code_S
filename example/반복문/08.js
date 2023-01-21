@@ -27,4 +27,4 @@ function findShortestOfThreeWords(word1, word2, word3) {
       return word3
     }
   }
-}
+} // why 안돼?
