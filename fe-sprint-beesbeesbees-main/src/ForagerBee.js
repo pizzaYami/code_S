@@ -1,5 +1,5 @@
 const Bee = require('./Bee');
-
+// extends에 대해서 공부하자
 class ForagerBee extends Bee {
   constructor(age, color, food, eat, job){
     super(age, color, food, eat, job)
