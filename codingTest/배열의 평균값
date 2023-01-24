@@ -1,6 +1,5 @@
 function solution(...numbers) {
     let result = 0;
-    console.log(numbers)
     result += numbers
     result = result / numbers.length
     return result
