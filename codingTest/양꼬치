@@ -1,4 +1,5 @@
 function solution(n, k) {
     var answer = 0;
+    // n* 12000 +  k*2000 으로하고 n이 10개 일때마다 -2000을 해주자
     return answer;
 }
