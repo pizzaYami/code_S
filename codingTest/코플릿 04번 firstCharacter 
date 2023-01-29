@@ -1,3 +1,10 @@
 function firstCharacter(str) {
-  
+  // 문자열들을 받아서 각 단어의 첫 글자로 이루어지 문자열을 리턴
+  // for문 사용해서 첫글자와 " "다음글자를 result에 넣어준다.
+  if (str.length === 0 ) return str
+  let result = str[0]
+  for(let i=0; i<str.length;i++ ){
+    if (str[i] === " ")result += str[i+1]
+  }
+  return result
 }
