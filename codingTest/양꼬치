@@ -2,3 +2,9 @@ function solution(n, k) {
     // n을 10으로 나뉘어서 나오는 정수만큼 -2000을 해준다.
     return n*12000 + k*2000 -  Math.floor(n/10) * 2000
 }
+
+function solution(n, k) {
+    k-=~~(n/10);
+    if (k < 0) k = 0;
+    return n*12000+k*2000;
+}
